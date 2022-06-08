@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "img": "https://images.unsplash.com/photo-1595737361672-ae84c6ca2298?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8amVqdXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+    "nation": "김포 → 제주이건제주도",
+    "trip": "🛬 김포 → 제주",
+    "date": "1월 1일 ~ 12월 31일",
+    "price": "557,100원 ~",
+    "airline": "백신접종시 격리면제"
+  },
+  {
+    "id": 2,
+    "img": "https://images.unsplash.com/photo-1612977512598-3b8d6a498bbb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8amVqdXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+    "nation": "김포 → 제주",
+    "trip": "🛬 김포 → 제주",
+    "date": "1월 1일 ~ 12월 31일",
+    "price": "557,100원 ~",
+    "airline": "백신접종시 격리면제"
+  },
+  {
+    "id": 3,
+    "img": "https://images.unsplash.com/photo-1633839216378-423dcfb383e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGplanV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+    "nation": "김포 → 제주",
+    "trip": "🛬 김포 → 제주",
+    "date": "1월 1일 ~ 12월 31일",
+    "price": "557,100원 ~",
+    "airline": "백신접종시 격리면제"
+  },
+  {
+    "id": 4,
+    "img": "https://images.unsplash.com/photo-1606534349412-485ce5339fe7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fGplanV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+    "nation": "김포 → 제주",
+    "trip": "🛬 김포 → 제주",
+    "date": "1월 1일 ~ 12월 31일",
+    "price": "557,100원 ~",
+    "airline": "백신접종시 격리면제"
+  }
+]
