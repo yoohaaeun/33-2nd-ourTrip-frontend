@@ -15,7 +15,6 @@ const GlobalStyle = createGlobalStyle`
     };
 
     button{
-        display: flex;
         cursor: pointer;
         outline: none;
     };
