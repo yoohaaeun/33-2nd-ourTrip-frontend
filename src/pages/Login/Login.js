@@ -5,13 +5,19 @@ import { SiNaver, SiFacebook } from 'react-icons/si';
 import { MdEmail } from 'react-icons/md';
 
 const Login = () => {
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_REST_API_KEY}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&response_type=code`;
+
+  const handleLogin = () => {
+    window.location.href = KAKAO_AUTH_URL;
+  };
+
   return (
     <LoginContainer>
       <LoginWrapper>
         <Emoji>👋</Emoji>
         <Header>반갑습니다!</Header>
         <Article>여행의 모든 것, 아워트립</Article>
-        <KakaoBtn>
+        <KakaoBtn onClick={handleLogin}>
           <KakaoBubble />
           <p>카카오로 바로 시작</p>
         </KakaoBtn>
