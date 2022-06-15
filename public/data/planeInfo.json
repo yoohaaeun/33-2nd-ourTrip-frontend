@@ -1,0 +1,40 @@
+{
+  "results": [
+    {
+      "flight_id": 85,
+      "name": "대한항공",
+      "flight_name": "KE1623",
+      "price": "21000",
+      "logo_url": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/KE.png",
+      "origin": "GMP",
+      "destination": "CJU",
+      "departure_time": "09:00",
+      "arrival_time": "10:20",
+      "duration": "01:20"
+    },
+    {
+      "flight_id": 45,
+      "name": "제주항공",
+      "flight_name": "KE1623",
+      "price": "21000",
+      "logo_url": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/LJ.png",
+      "origin": "GMP",
+      "destination": "CJU",
+      "departure_time": "09:00",
+      "arrival_time": "10:00",
+      "duration": "01:00"
+    },
+    {
+      "flight_id": 23,
+      "name": "아시아나항공",
+      "flight_name": "KE1623",
+      "price": "21000",
+      "logo_url": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/OZ.png",
+      "origin": "GMP",
+      "destination": "CJU",
+      "departure_time": "09:00",
+      "arrival_time": "10:00",
+      "duration": "01:05"
+    }
+  ]
+}
