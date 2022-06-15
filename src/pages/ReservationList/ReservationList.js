@@ -39,7 +39,7 @@ const ReservationList = () => {
     const sortString = selectSort && `&sort=${selectSort}`;
     navigate(`?${params}${airplaneString}${timeString}${sortString}`);
     fetch(
-      `http://10.58.5.35:8000/flights?date=2022-06-20&origin=CJU&destination=GMP${airplaneString}${timeString}${sortString}`,
+      `http://10.58.1.178:8000/flights?date=2022-06-20&origin=CJU&destination=GMP${airplaneString}${timeString}${sortString}`,
       {
         method: 'GET',
       }
