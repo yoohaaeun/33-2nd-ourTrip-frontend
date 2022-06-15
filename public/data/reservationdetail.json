@@ -1,0 +1,31 @@
+{
+  "results": {
+    "code": "01023451212",
+    "airline": "대한항공",
+    "kor_origin": "제주공항",
+    "kor_destination": "김포공항",
+    "origin": "CJU",
+    "destination": "GMP",
+    "logo_url": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/KE.png",
+    "date": "2022-06-20 Monday 05:00",
+    "user_information": {
+      "user_name": "최현민",
+      "user_email": "hymn9611@naver.com"
+    },
+    "total_price": "118,000원",
+    "passengers": [
+      {
+        "name": "Byeonghwi Jeong",
+        "gender": "남성",
+        "birth": "1990-09-19",
+        "price": 59000
+      },
+      {
+        "name": "hyunmin choi",
+        "gender": "남성",
+        "birth": "1996-10-10",
+        "price": 59000
+      }
+    ]
+  }
+}
