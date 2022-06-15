@@ -90,7 +90,6 @@ const CsInfo = styled.section`
   position: relative;
   text-align: left;
   width: 50%;
-
   ul {
     width: ${100 / 3}%;
     li {
@@ -110,9 +109,7 @@ const CsInfo = styled.section`
   }
   p {
     margin-bottom: 5px;
-
     font-weight: 400;
-
     &.lastChild {
       margin-bottom: 40px;
     }
@@ -133,13 +130,11 @@ const CategoryInfo = styled.div`
   ul {
     text-align: left;
     width: 200px;
-
     li:nth-child(1) {
       color: #666d75;
       font-size: 16px;
       font-weight: 700;
     }
-
     li {
       margin-top: 20px;
       font-size: 15px;
@@ -154,7 +149,6 @@ const LastInfo = styled.div`
   width: 50%;
   color: #666d75;
   font-size: 14px;
-
   div {
     margin-right: 30px;
     margin-bottom: 20px;
