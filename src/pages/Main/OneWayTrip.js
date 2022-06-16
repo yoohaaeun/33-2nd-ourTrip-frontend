@@ -8,6 +8,23 @@ import Selectcitymodal from './SelectCityModal';
 import Selectpassengermodal from './SelectPassengerModal';
 import 'antd/dist/antd.css';
 import { DatePicker } from 'antd';
+import { useNavigate } from 'react-router';
+import { API } from '../../config';
+
+const CITY_ENG = {
+  제주: 'CJU',
+  김포: 'GMP',
+  부산: 'PUS',
+  청주: 'CJJ',
+  여수: 'RSU',
+  광주: 'KWJ',
+  대구: 'TAE',
+  양양: 'YNY',
+  군산: 'KUV',
+  울산: 'USN',
+  포항: 'KPO',
+  인천: 'ICN',
+};
 
 const Onewaytrip = () => {
   const departureRef = useRef();
@@ -26,6 +43,38 @@ const Onewaytrip = () => {
 
   const [showDatePicker, setShowDatePicker] = useState(false);
 
+  const [savedSearch, setSavedSearch] = useState({
+    departure: undefined,
+    arrival: undefined,
+    date: undefined,
+    numberOfPassenger: 0,
+  });
+
+  const [count, setCount] = useState({
+    adult: 0,
+    child: 0,
+    infant: 0,
+  });
+
+  const total = `${count.adult + count.child + count.infant}`;
+
+  const navigate = useNavigate();
+
+  const goToListPage = () => {
+    if (
+      savedSearch.departure &&
+      savedSearch.arrival &&
+      savedSearch.date &&
+      savedSearch.numberOfPassenger
+    ) {
+      navigate(
+        `${API.GO_TO_LIST_PAGE}?date=${savedSearch.date}&origin=${savedSearch.departure}&destination=${savedSearch.arrival}`
+      );
+    } else {
+      alert('다 입력해');
+    }
+  };
+
   return (
     <>
       <BodySearchBox>
@@ -36,7 +85,9 @@ const Onewaytrip = () => {
             }}
             ref={departureRef}
           >
-            김포 (GMP)
+            {savedSearch.departure
+              ? `${savedSearch.departure} (${CITY_ENG[savedSearch.departure]})`
+              : '김포 (GMP)'}
           </StartingPlace>
           <StartingPlaceIcon>
             <TbArrowsLeftRight />
@@ -46,14 +97,21 @@ const Onewaytrip = () => {
               setArrOpenSelectModal(true);
             }}
             ref={arrivalRef}
+            savedSearch={savedSearch}
+            isSavedSearch={savedSearch.arrival}
           >
-            도착지가 어디인가요?
+            {savedSearch.arrival
+              ? `${savedSearch.arrival} (${CITY_ENG[savedSearch.arrival]})`
+              : '도착지가 어디인가요?'}
           </Destination>
           {openDepSelectModal && (
             <Selectcitymodal
               offSetLeft={depOffSetLeft}
               offSetTop={offSetTop}
               closeModal={setDepOpenSelectModal}
+              savedSearch={savedSearch}
+              setSavedSearch={setSavedSearch}
+              type="departure"
             />
           )}
           {openArrSelectModal && (
@@ -61,6 +119,9 @@ const Onewaytrip = () => {
               offSetLeft={arrOffSetLeft}
               offSetTop={offSetTop}
               closeModal={setArrOpenSelectModal}
+              savedSearch={savedSearch}
+              setSavedSearch={setSavedSearch}
+              type="arrival"
             />
           )}
         </CitySelector>
@@ -68,12 +129,18 @@ const Onewaytrip = () => {
         <DateSelectorWrapper>
           <DateSelector onClick={() => setShowDatePicker(!showDatePicker)}>
             <DateSelectorIcon />
-            <DestinationDate>가는날선택</DestinationDate>
+            <DestinationDate isSavedDate={savedSearch.date}>
+              {savedSearch.date ? savedSearch.date : '가는 날 선택'}
+            </DestinationDate>
           </DateSelector>
           <RangePickerWrapper>
             <DatePicker
               onClick={e => e.stopPropagation()}
               open={showDatePicker}
+              onChange={(date, dateString) => {
+                setSavedSearch({ ...savedSearch, date: dateString });
+                setShowDatePicker(false);
+              }}
             />
           </RangePickerWrapper>
         </DateSelectorWrapper>
@@ -86,7 +153,7 @@ const Onewaytrip = () => {
         >
           <PassengerUserIcon />
           <PassengerCount>
-            승객 <span>9</span>
+            승객 <span>{total}</span>
             명, 전체
           </PassengerCount>
           <PassengerArrowIcon />
@@ -96,9 +163,14 @@ const Onewaytrip = () => {
             offSetLeft={passengerOffSetLeft}
             offSetTop={offSetTop}
             closeModal={setPassengerOpenModal}
+            setSavedSearch={setSavedSearch}
+            savedSearch={savedSearch}
+            setCount={setCount}
+            count={count}
+            total={total}
           />
         )}
-        <SearchBtn>검색</SearchBtn>
+        <SearchBtn onClick={goToListPage}>검색</SearchBtn>
       </BodySearchBox>
 
       <BottomCheckBox>
@@ -145,6 +217,7 @@ const StartingPlace = styled.div`
   font-size: 15px;
   font-weight: 600;
   padding: 0 15px;
+  color: black;
 `;
 
 const StartingPlaceIcon = styled.div`
@@ -162,7 +235,9 @@ const Destination = styled.div`
   width: 184px;
   padding: 0 15px;
   font-size: 15px;
+  font-weight: ${props => (props.isSavedSearch ? '600' : '400')};
   color: lightgray;
+  color: ${props => (props.isSavedSearch ? 'black' : 'lightgray')};
 `;
 
 const DateSelectorWrapper = styled.div`
@@ -202,7 +277,8 @@ const DestinationDate = styled.div`
   width: 150px;
   padding: 0 0 0 10px;
   font-size: 15px;
-  color: lightgray;
+  font-weight: ${props => (props.isSavedDate ? '600' : '400')};
+  color: ${props => (props.isSavedDate ? 'black' : 'lightgray')};
 `;
 
 const Passenger = styled.div`

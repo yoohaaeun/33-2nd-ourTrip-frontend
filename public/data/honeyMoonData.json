@@ -1,38 +1,38 @@
 [
   {
     "id": 1,
-    "img": "https://images.unsplash.com/photo-1595737361672-ae84c6ca2298?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8amVqdXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
-    "nation": "김포 → 제주잘된다다다",
-    "trip": "🛬 김포 → 제주",
+    "img": "https://images.unsplash.com/photo-1618238832760-7e4129ef4a43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80",
+    "nation": "인천 → 말레(몰디브)",
+    "trip": "🛬 인천 → 말레(몰디브)",
     "date": "1월 1일 ~ 12월 31일",
-    "price": "557,100원 ~",
-    "airline": "백신접종시 격리면제"
+    "price": "915,400원 ~",
+    "airline": "경유"
   },
   {
     "id": 2,
-    "img": "https://images.unsplash.com/photo-1612977512598-3b8d6a498bbb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8amVqdXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
-    "nation": "김포 → 제주",
-    "trip": "🛬 김포 → 제주",
+    "img": "https://images.unsplash.com/photo-1555400038-63f5ba517a47?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80",
+    "nation": "인천 → 발리",
+    "trip": "🛬 인천 → 발리",
     "date": "1월 1일 ~ 12월 31일",
-    "price": "557,100원 ~",
-    "airline": "백신접종시 격리면제"
+    "price": "831,900원 ~",
+    "airline": "경유"
   },
   {
     "id": 3,
-    "img": "https://images.unsplash.com/photo-1633839216378-423dcfb383e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGplanV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "nation": "김포 → 제주",
-    "trip": "🛬 김포 → 제주",
+    "img": "https://images.unsplash.com/photo-1620095198790-2f663d67677d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80",
+    "nation": "인천 → 칸쿤",
+    "trip": "🛬 인천 → 킨쿤",
     "date": "1월 1일 ~ 12월 31일",
-    "price": "557,100원 ~",
-    "airline": "백신접종시 격리면제"
+    "price": "1,371,200원 ~",
+    "airline": "경유"
   },
   {
     "id": 4,
-    "img": "https://images.unsplash.com/photo-1606534349412-485ce5339fe7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fGplanV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "nation": "김포 → 제주",
-    "trip": "🛬 김포 → 제주",
+    "img": "https://images.unsplash.com/photo-1623941000342-fd0ccdcbb9c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2372&q=80",
+    "nation": "인천 → 세이셸",
+    "trip": "🛬 인천 → 세이셸",
     "date": "1월 1일 ~ 12월 31일",
-    "price": "557,100원 ~",
+    "price": "1,947,000원 ~",
     "airline": "백신접종시 격리면제"
   }
 ]

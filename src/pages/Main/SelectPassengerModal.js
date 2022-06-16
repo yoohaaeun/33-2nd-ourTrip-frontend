@@ -3,7 +3,26 @@ import styled from 'styled-components';
 import { VscClose } from 'react-icons/vsc';
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai';
 
-const Selectpassengermodal = ({ offSetLeft, offSetTop, closeModal }) => {
+const Selectpassengermodal = ({
+  offSetLeft,
+  offSetTop,
+  closeModal,
+  savedSearch,
+  setSavedSearch,
+  setCount,
+  count,
+  total,
+}) => {
+  const counter = (target, type) => {
+    if (type === 'increase') {
+      setCount({ ...count, [target]: count[target] + 1 });
+    } else {
+      count[target] > 0
+        ? setCount({ ...count, [target]: count[target] - 1 })
+        : setCount({ ...count, [target]: 0 });
+    }
+  };
+
   return (
     <ModalBackground>
       <ModalContainer
@@ -12,7 +31,12 @@ const Selectpassengermodal = ({ offSetLeft, offSetTop, closeModal }) => {
       >
         <HeaderBox>
           <HeaderTitle>인원 & 좌석등급</HeaderTitle>
-          <ModalClose onClick={() => closeModal(false)}>
+          <ModalClose
+            onClick={() => {
+              setSavedSearch({ ...savedSearch, numberOfPassenger: total });
+              closeModal(false);
+            }}
+          >
             <CloseIcon />
           </ModalClose>
         </HeaderBox>
@@ -22,9 +46,18 @@ const Selectpassengermodal = ({ offSetLeft, offSetTop, closeModal }) => {
             <SubText>만 12세 이상</SubText>
           </BodyLeft>
           <CounteBox>
-            <MinusBtn />
-            <Count>0</Count>
-            <PlusBtn />
+            <MinusBtn
+              onClick={() => {
+                counter('adult', 'decrease');
+              }}
+            />
+            <Count>{count.adult}</Count>
+            <PlusBtn
+              onClick={() => {
+                counter('adult', 'increase');
+              }}
+              bnv
+            />
           </CounteBox>
         </BodyBox>
         <BodyBox>
@@ -33,20 +66,28 @@ const Selectpassengermodal = ({ offSetLeft, offSetTop, closeModal }) => {
             <SubText>만 12세 미만</SubText>
           </BodyLeft>
           <CounteBox>
-            <MinusBtn />
-            <Count>0</Count>
-            <PlusBtn />
+            <MinusBtn onClick={() => counter('child', 'decrease')} />
+            <Count>{count.child}</Count>
+            <PlusBtn onClick={() => counter('child', 'increase')} />
           </CounteBox>
         </BodyBox>
         <BodyBox>
           <BodyLeft>
-            <ClassText>성인</ClassText>
+            <ClassText>유아</ClassText>
             <SubText>24개월 미만</SubText>
           </BodyLeft>
           <CounteBox>
-            <MinusBtn />
-            <Count>0</Count>
-            <PlusBtn />
+            <MinusBtn
+              onClick={() => {
+                counter('infant', 'decrease');
+              }}
+            />
+            <Count>{count.infant}</Count>
+            <PlusBtn
+              onClick={() => {
+                counter('infant', 'increase');
+              }}
+            />
           </CounteBox>
         </BodyBox>
         <FooterBox>
@@ -70,7 +111,7 @@ const Selectpassengermodal = ({ offSetLeft, offSetTop, closeModal }) => {
                 type="radio"
                 id="radio04"
                 name="class"
-                checked="checked"
+                defaultChecked="checked"
               />
               <ClassLabel htmlFor="radio04">전체</ClassLabel>
             </ClassBox>
@@ -114,8 +155,11 @@ const HeaderTitle = styled.div`
 `;
 
 const ModalClose = styled.button`
+  position: relative;
+  top: 2px;
   border: none;
   background-color: inherit;
+  padding: 0;
 `;
 
 const CloseIcon = styled(VscClose)`
@@ -150,21 +194,25 @@ const SubText = styled.div`
 const CounteBox = styled.div`
   display: flex;
   align-items: center;
+  width: fit-content;
 `;
 
 const MinusBtn = styled(AiOutlineMinusCircle)`
-  font-size: 28px;
+  width: fit-content;
   margin-right: 10px;
+  font-size: 28px;
   color: #ced4da;
 `;
 
 const Count = styled.div`
+  width: 20px;
+  text-align: center;
   font-size: 14px;
 `;
 
 const PlusBtn = styled(AiOutlinePlusCircle)`
+  width: fit-content;
   font-size: 28px;
-
   margin-left: 10px;
   color: #51abf3;
 `;

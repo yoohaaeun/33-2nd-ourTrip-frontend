@@ -5,22 +5,28 @@ import Aroundtrip from './AroundTrip';
 import Onewaytrip from './OneWayTrip';
 
 const Mainsearcharea = () => {
-  const [tabMenu, setTabMenu] = useState(0);
+  const [tabMenu, setTabMenu] = useState('편도');
+
+  const menuList = {
+    왕복: <Aroundtrip />,
+    편도: <Onewaytrip />,
+    다구간: <Aroundtrip />,
+  };
 
   return (
     <MainSearchBoxWrapper>
       <SearchBox>
         <ButtonBox>
           <HeaderLeftBtnBox>
-            <HeaderLeftBtn onClick={() => setTabMenu(0)} active={tabMenu === 0}>
-              왕복
-            </HeaderLeftBtn>
-            <HeaderLeftBtn onClick={() => setTabMenu(1)} active={tabMenu === 1}>
-              편도
-            </HeaderLeftBtn>
-            <HeaderLeftBtn onClick={() => setTabMenu(2)} active={tabMenu === 2}>
-              다구간
-            </HeaderLeftBtn>
+            {TRIP_TYPE.map(type => (
+              <HeaderLeftBtn
+                onClick={() => setTabMenu(type)}
+                active={tabMenu === type}
+                key={type}
+              >
+                {type}
+              </HeaderLeftBtn>
+            ))}
           </HeaderLeftBtnBox>
 
           <HeaderBtn>
@@ -34,9 +40,7 @@ const Mainsearcharea = () => {
             </HeaderRightBtn>
           </HeaderBtn>
         </ButtonBox>
-        {tabMenu === 0 && <Aroundtrip />}
-        {tabMenu === 1 && <Onewaytrip />}
-        {tabMenu === 2 && <Aroundtrip />}
+        {menuList[tabMenu]}
       </SearchBox>
     </MainSearchBoxWrapper>
   );
@@ -124,3 +128,5 @@ const HeaderRightBtnIcon = styled(IoIosArrowDroprightCircle)`
 `;
 
 export default Mainsearcharea;
+
+const TRIP_TYPE = ['왕복', '편도', '다구간'];

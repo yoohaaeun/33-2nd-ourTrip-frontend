@@ -16,7 +16,26 @@ const CITY_LIST = [
   '인천',
 ];
 
-const Selectcitymodal = ({ offSetLeft, offSetTop, closeModal }) => {
+const Selectcitymodal = ({
+  offSetLeft,
+  offSetTop,
+  closeModal,
+  savedSearch,
+  setSavedSearch,
+  type,
+}) => {
+  const handleSelect = city => {
+    if (type === 'departure') {
+      setSavedSearch({ ...savedSearch, departure: city });
+      closeModal(false);
+    }
+
+    if (type === 'arrival') {
+      setSavedSearch({ ...savedSearch, arrival: city });
+      closeModal(false);
+    }
+  };
+
   return (
     <ModalBackground>
       <ModalContainer
@@ -40,7 +59,16 @@ const Selectcitymodal = ({ offSetLeft, offSetTop, closeModal }) => {
           <Domestic>국내</Domestic>
           <CityList>
             {CITY_LIST.map(city => {
-              return <City key={city}>{city}</City>;
+              return (
+                <City
+                  key={city}
+                  onClick={() => {
+                    handleSelect(city);
+                  }}
+                >
+                  {city}
+                </City>
+              );
             })}
           </CityList>
         </CityOptionBox>
