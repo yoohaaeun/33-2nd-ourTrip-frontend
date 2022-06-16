@@ -1,7 +1,8 @@
-import React, { useState, useNavigate } from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { FaSistrix } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
   const [category, setCategory] = useState(0);
