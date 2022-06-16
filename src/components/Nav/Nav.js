@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Nav = () => {
   const [category, setCategory] = useState(0);
   const location = useLocation();
-  const navigate = useNavigate();
+  const navigate = useNavigate;
   const goToLogin = () => {
     navigate('/login');
   };
