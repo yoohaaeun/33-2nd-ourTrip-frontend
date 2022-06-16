@@ -89,7 +89,6 @@ const SideItem = styled.div`
   justify-content: flex-start;
   align-items: center;
   background-color: white;
-
   font-size: 18px;
   ${props =>
     props.active &&

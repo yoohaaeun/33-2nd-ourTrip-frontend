@@ -6,7 +6,10 @@ function ReserveCardDetail({ userList }) {
     <ReservedCard>
       {userList && (
         <>
-          <UserInfo>손가영님의 예약변호는 {userList.code}입니다.</UserInfo>
+          <UserInfo>
+            {userList.user_information?.user_name}의 예약변호는 {userList.code}
+            입니다.
+          </UserInfo>
           <ReservedBox>
             <TicketBox>
               <PlaceInfo>
@@ -41,11 +44,11 @@ function ReserveCardDetail({ userList }) {
                     <JourneyDate>
                       <GoTo>
                         <SpanTitle>출발일</SpanTitle>
-                        <Span>02.17(월)</Span>
+                        <Span>06.20(월)</Span>
                       </GoTo>
                       <BackTo>
                         <SpanTitle>도착일</SpanTitle>
-                        <Span>03.02(월)</Span>
+                        <Span>06.20(월)</Span>
                       </BackTo>
                     </JourneyDate>
                   </JourneyInfo>

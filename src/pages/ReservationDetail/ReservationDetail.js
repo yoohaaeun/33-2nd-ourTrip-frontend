@@ -9,8 +9,6 @@ import ReserveCardDetail from './ReserveCardDetail';
 function ReservationDetail() {
   const [userList, setUserList] = useState({});
   const params = useParams();
-  console.log('fd', params);
-  // const params = useParams();
 
   useEffect(() => {
     fetch(
@@ -19,9 +17,9 @@ function ReservationDetail() {
       {
         method: 'GET',
         headers: {
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6M30.MDXWK1agH0knb6gUzkJDfZWG2TNjF99iQtFHy6tVXGo',
-          //  localStorage.getItem('token'),
+          Authorization: localStorage.getItem('token'),
+          // Authorization:
+          //   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6M30.MDXWK1agH0knb6gUzkJDfZWG2TNjF99iQtFHy6tVXGo',
         },
       }
     )
@@ -65,7 +63,8 @@ function ReservationDetail() {
 }
 
 const ReservationDetailMain = styled.div`
-  margin: 32px 0 40px;
+  margin: 0px 0 40px;
+  padding-top: 1px;
 `;
 
 const DetailWrapper = styled.div`

@@ -1,21 +1,33 @@
-import React, { useState, useNavigate } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { FaSistrix } from 'react-icons/fa';
 
 const Nav = () => {
-  const [category, setCategory] = useState(0);
+  const [category, setCategory] = useState(1);
   const location = useLocation();
   const navigate = useNavigate();
+
   const goToLogin = () => {
     navigate('/login');
   };
+  const goToMain = () => {
+    navigate('/');
+  };
+  const goToMypage = () => {
+    navigate('/mypage');
+  };
 
+  const handleLogOut = () => {
+    localStorage.removeItem('token');
+    navigate('/');
+  };
   return (
     <NavBar pathName={location.pathname}>
       <NavHeader>
         <HeaderBox>
           <Navimg
+            oncClick={goToMain}
             alt="ourtriplogo"
             src={
               location.pathname === '/'
@@ -41,11 +53,22 @@ const Nav = () => {
           </HeaderSearch>
           <HeaderItems>
             <NavItems pathName={location.pathname}>
-              <span>파트너 등록하기</span>
-
-              <span onClick={goToLogin}>로그인</span>
-
-              <span>회원가입</span>
+              {!localStorage.getItem('token') ? (
+                <span>파트너 등록하기</span>
+              ) : (
+                <span onClick={goToMypage}>내 여행</span>
+              )}
+              {!localStorage.getItem('token') ? (
+                <span onClick={goToLogin}>로그인</span>
+              ) : (
+                <span onClick={handleLogOut}>로그아웃</span>
+              )}
+              {!localStorage.getItem('token') ? (
+                <SpanBtn>회원가입</SpanBtn>
+              ) : (
+                <span>메세지</span>
+              )}
+              {!localStorage.getItem('token') ? '' : <span>알림</span>}
             </NavItems>
           </HeaderItems>
         </HeaderBox>
@@ -74,13 +97,16 @@ const NavBar = styled.div`
   position: absolute;
   height: 123px;
   width: 100%;
-  border-bottom: 1px solid rgba(245, 246, 255, 0.15);
+  border-bottom: 1px solid #e1e1e1;
   background-color: white;
   ${({ pathName }) =>
     pathName === '/' &&
     css`
+      height: 123px;
+      width: 100%;
       position: absolute;
       background-color: transparent;
+      border-bottom: 1px solid rgba(250, 250, 250, 0.2);
     `}
 `;
 
@@ -186,6 +212,7 @@ const HeaderItems = styled.div`
 
 const NavItems = styled.div`
   height: 36px;
+  width: 400px;
   margin-right: 8px;
   background-color: transparent;
   border-radius: 3px;
@@ -199,34 +226,41 @@ const NavItems = styled.div`
     pathName === '/' &&
     css`
       color: white;
+      background-color: transparent;
     `}
   span {
     margin-left: 29px;
     :hover {
       cursor: pointer;
+      background-color: transparent;
     }
-  }
-  span:nth-child(3) {
-    padding: 6px 25px;
-    border: 1px solid #a7d4f9;
-    border-radius: 3px;
-    color: #3fa5f7;
-    :hover {
-      background-color: #eef6fe;
-      cursor: pointer;
-    }
-    ${({ pathName }) =>
-      pathName === '/' &&
-      css`
-        border: 1px solid white;
-        color: white;
-        :hover {
-          background-color: rgba(255, 255, 255, 0.3);
-          cursor: pointer;
-        }
-      `}
   }
 `;
+const SpanBtn = styled.span`
+  padding: 6px 25px;
+  border: 1px solid #a7d4f9;
+  border-radius: 3px;
+  color: #3fa5f7;
+  :hover {
+    background-color: #eef6fe;
+    cursor: pointer;
+  }
+  ${({ pathName }) =>
+    pathName === '/' &&
+    css`
+      border: 1px solid white;
+      color: white;
+      :hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+      }
+    `}
+`;
+
+// const MyImg = styled.img`
+//   width: 30px;
+//   justify-content: space-between;
+// `;
 
 const NavBarSubCategory = styled.section`
   display: flex;

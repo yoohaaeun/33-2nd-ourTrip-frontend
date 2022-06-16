@@ -15,8 +15,10 @@ function ReservationCard() {
     fetch('http://10.58.1.178:8000/reservations', {
       method: 'GET',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6M30.MDXWK1agH0knb6gUzkJDfZWG2TNjF99iQtFHy6tVXGo',
+        Authorization: localStorage.getItem('token'),
+
+        // Authorization:
+        //   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6M30.MDXWK1agH0knb6gUzkJDfZWG2TNjF99iQtFHy6tVXGo',
       },
     })
       .then(res => res.json())
@@ -48,7 +50,9 @@ function ReservationCard() {
               <AirlinInfo>
                 <NavImg alt="ourtriplogo" src={logo_url} />
                 <TextBox>
-                  <span>{airline}</span>
+                  <span>
+                    [{airline}]{kor_origin}-{kor_destination}{' '}
+                  </span>
                   <span>{code}</span>
                 </TextBox>
                 <DepartureBox>{date}</DepartureBox>
@@ -140,6 +144,7 @@ const TextBox = styled.div`
   span:nth-child(1) {
     font-size: 17px;
     font-weight: 600;
+    letter-spacing: 1px;
   }
   span:nth-child(2) {
     color: #9e9e9e;
