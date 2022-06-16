@@ -9,7 +9,6 @@ import Selectpassengermodal from './SelectPassengerModal';
 import 'antd/dist/antd.css';
 import { DatePicker } from 'antd';
 import { useNavigate } from 'react-router';
-import { API } from '../../config';
 
 const CITY_ENG = {
   제주: 'CJU',
@@ -68,10 +67,10 @@ const Onewaytrip = () => {
       savedSearch.numberOfPassenger
     ) {
       navigate(
-        `${API.GO_TO_LIST_PAGE}?date=${savedSearch.date}&origin=${savedSearch.departure}&destination=${savedSearch.arrival}`
+        `/loading/?date=${savedSearch.date}&origin=${savedSearch.departure}&destination=${savedSearch.arrival}`
       );
     } else {
-      alert('다 입력해');
+      alert('');
     }
   };
 

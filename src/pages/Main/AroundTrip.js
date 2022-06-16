@@ -11,7 +11,6 @@ import Selectcitymodal from './SelectCityModal';
 import Selectpassengermodal from './SelectPassengerModal';
 import { DatePicker } from 'antd';
 import 'antd/dist/antd.css';
-import { API } from '../../config';
 
 const { RangePicker } = DatePicker;
 
@@ -72,7 +71,7 @@ const Aroundtrip = () => {
       savedSearch.numberOfPassenger
     ) {
       navigate(
-        `${API.GO_TO_LIST_PAGE}?date=${savedSearch.date}&origin=${savedSearch.departure}&destination=${savedSearch.arrival}`
+        `/loading/?date=${savedSearch.date}&origin=${savedSearch.departure}&destination=${savedSearch.arrival}`
       );
     } else {
       alert('모든 정보를 입력해 주세요.');
