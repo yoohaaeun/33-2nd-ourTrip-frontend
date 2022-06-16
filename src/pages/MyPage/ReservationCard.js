@@ -15,10 +15,10 @@ function ReservationCard() {
     fetch('http://10.58.1.178:8000/reservations', {
       method: 'GET',
       headers: {
-        Authorization: localStorage.getItem('token'),
+        // Authorization: localStorage.getItem('token'),
 
-        // Authorization:
-        //   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6M30.MDXWK1agH0knb6gUzkJDfZWG2TNjF99iQtFHy6tVXGo',
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6M30.MDXWK1agH0knb6gUzkJDfZWG2TNjF99iQtFHy6tVXGo',
       },
     })
       .then(res => res.json())

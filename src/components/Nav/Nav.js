@@ -99,6 +99,7 @@ const NavBar = styled.div`
   width: 100%;
   border-bottom: 1px solid #e1e1e1;
   background-color: white;
+
   ${({ pathName }) =>
     pathName === '/' &&
     css`

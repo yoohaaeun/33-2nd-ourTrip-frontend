@@ -17,9 +17,9 @@ function ReservationDetail() {
       {
         method: 'GET',
         headers: {
-          Authorization: localStorage.getItem('token'),
-          // Authorization:
-          //   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6M30.MDXWK1agH0knb6gUzkJDfZWG2TNjF99iQtFHy6tVXGo',
+          // Authorization: localStorage.getItem('token'),
+          Authorization:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6M30.MDXWK1agH0knb6gUzkJDfZWG2TNjF99iQtFHy6tVXGo',
         },
       }
     )
@@ -64,7 +64,7 @@ function ReservationDetail() {
 
 const ReservationDetailMain = styled.div`
   margin: 0px 0 40px;
-  padding-top: 1px;
+  padding-top: 150px;
 `;
 
 const DetailWrapper = styled.div`
