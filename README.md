@@ -10,7 +10,7 @@
 # 팀원
 
 **Front-end**
-|손가영|유하은|윤경연|최현민
+|손가영|유하은|윤경연|최현민
 |---|---|---|---|
 |<img src="https://user-images.githubusercontent.com/96946274/174240493-1cfec6ab-792a-4c0a-8971-5943c2339be3.png" width=100px>|<img src="https://user-images.githubusercontent.com/96946274/174240826-5ad95862-9744-4315-ab3b-32b0a2c9fb54.png" width=100px>|<img src="https://user-images.githubusercontent.com/96946274/174240948-089eaf31-0c99-4c2e-a84e-95c0dc4cbd33.png" width=100px>|<img src="https://user-images.githubusercontent.com/96946274/174241448-6d768383-2589-4273-ad6d-0b942d98927f.png" width=90px>|
 
