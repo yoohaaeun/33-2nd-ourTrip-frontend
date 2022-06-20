@@ -15,7 +15,7 @@ import 'antd/dist/antd.css';
 const { RangePicker } = DatePicker;
 
 const CITY_ENG = {
-  제주: 'CJU',
+  제주도: 'CJU',
   김포: 'GMP',
   부산: 'PUS',
   청주: 'CJJ',
